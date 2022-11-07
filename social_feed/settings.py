@@ -128,7 +128,9 @@ STATIC_URL = "static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 #  go here if next is not provided
-LOGIN_REDIRECT_URL = 'account:dashboard'
+LOGIN_REDIRECT_URL = 'dashboard'
 # all views using login decorator go here if not authenticated
-LOGIN_URL = 'account:login'
-LOGOUT_URL = 'account:logout'
+LOGIN_URL = 'login'
+LOGOUT_URL = 'logout'
+
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
