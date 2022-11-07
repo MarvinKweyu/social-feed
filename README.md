@@ -4,12 +4,11 @@
 
 
 ## Setup
-This project uses [poetry](https://python-poetry.org/docs/) for dependency management.
 Clone the repo, install dependencies and run the project.
 
 ```bash
-poetry install
-poetry shell
+pip install -r requirements.txt
+python manage.py migrate
 python manage.py runserver
 ```
 
