@@ -1,31 +1,29 @@
-FROM python:3.9.6-alpine as python
+# pull official base image
+FROM python:3.9.6-alpine
 
-# working directory
-WORKDIR /social-feed
+# set working directory
+WORKDIR /usr/src/social-feed
 
-# environment vars
+# environment variables
 ENV PYTHONDONTWRITEBYTECODE 1
+# DON'T BUFFER STDOUT AND STDERR
 ENV PYTHONUNBUFFERED 1
 
 # psycopg deps
 RUN apk update && apk add postgresql-dev gcc python3-dev musl-dev
 
-# build stage 2
-FROM python as poetry
-ENV POETRY_HOME=/opt/poetry
-ENV POETRY_VIRTUALENVS_IN_PROJECT=true
-ENV PATH="$POETRY_HOME/bin:$PATH"
-RUN python -c 'from urllib.request import urlopen; print(urlopen("https://install.python-poetry.org").read().decode())' | python -
-COPY . ./
-RUN poetry install --no-interaction --no-ansi -vvv
+# install dependencies
+RUN pip install --upgrade pip
+COPY ./requirements.txt .
+RUN pip install -r requirements.txt
 
+# copy entrypoint
+COPY ./entrypoint.sh .
+RUN sed -i 's/\r$//g' /usr/src/social-feed/entrypoint.sh
+RUN chmod +x /usr/src/social-feed/entrypoint.sh
+# copy project
+COPY . .
+RUN ls /usr/src/social-feed
 
-FROM python as runtime
-ENV PATH="/social-feed/.venv/bin:$PATH"
-COPY --from=poetry /social-feed /social-feed
-EXPOSE 8000
-CMD
-
-
-
-
+# run entrypoint
+ENTRYPOINT [ "/usr/src/social-feed/entrypoint.sh" ]
