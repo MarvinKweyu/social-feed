@@ -20,6 +20,9 @@ urlpatterns = [
          name="password_reset_confirm"),  # view to show after click of email view
     path("reset/done/", auth_views.PasswordResetDoneView.as_view(),
          name="password_reset_complete"),
+    #     register a new user
+    path("register", views.register, name="register"),
+    path("edit", views.edit_user, name="edit"),
     path('', views.dashboard, name='dashboard'),
 
 ]
