@@ -68,7 +68,7 @@ TEMPLATES = [
                 "django.template.context_processors.debug",
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
-                "django.contrib.messages.context_processors.messages", # for messaging
+                "django.contrib.messages.context_processors.messages",  # for messaging
             ],
         },
     },
@@ -137,3 +137,10 @@ LOGOUT_URL = 'logout'
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 MEDIA_URL = '/media/'  # serve media files uploaded from here
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')  # local path of residence
+
+
+AUTHENTICATION_BACKENDS = [
+    # if no user is returned using username and password, go to the email
+    'django.contrib.auth.backends.ModelBackend',  # maintain default auth backend
+    'account.authentication.EmailBackend',
+]
