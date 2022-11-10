@@ -9,7 +9,7 @@ Clone the repo, install dependencies and run the project.
 ```bash
 pip install -r requirements.txt
 python manage.py migrate
-python manage.py runserver
+python manage.py runserver_plus --cert-file cert.crt
 ```
 
 

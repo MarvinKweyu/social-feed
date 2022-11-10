@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     # third party
     "crispy_forms",
+    "social_django",
+    "django_extensions",
 ]
 
 
@@ -142,5 +144,11 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')  # local path of residence
 AUTHENTICATION_BACKENDS = [
     # if no user is returned using username and password, go to the email
     'django.contrib.auth.backends.ModelBackend',  # maintain default auth backend
-    'account.authentication.EmailBackend',
+    'account.authenticate.EmailAuthbackend',
+    "social_core.backends.twitter.TwitterOAuth",
 ]
+
+SOCIAL_AUTH_TWITTER_KEY = "ffptrcZ9Lwu6vEKKRPWTF9DBz"  # api KEY
+SOCIAL_AUTH_TWITTER_SECRET = "314TNcpJdXIJrxZcY9QbZoFlXSRasmTmATE6xqUYy2WnuXmi7O"  # api SECRET
+# BREARER TOKEN
+# AAAAAAAAAAAAAAAAAAAAAFCnjAEAAAAAj8txDcpXaEq8w1lDGNkgu % 2B9TT5M % 3DG0THo1UxArwbqE9avSH5j4rsqF9eT8uf1KdBu4eKcN6Wpl6b7Z
