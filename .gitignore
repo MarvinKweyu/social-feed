@@ -1,4 +1,6 @@
 
+cert*
+
 ### Django ###
 *.log
 *.pot
