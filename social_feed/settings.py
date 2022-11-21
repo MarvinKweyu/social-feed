@@ -10,8 +10,10 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
-from pathlib import Path
 import os
+from pathlib import Path
+
+from django.urls import reverse_lazy
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -39,6 +41,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "django.contrib.admindocs",
     # local apps other than accounting
     "images",
     # third party
@@ -155,3 +158,6 @@ SOCIAL_AUTH_TWITTER_KEY = "ffptrcZ9Lwu6vEKKRPWTF9DBz"  # api KEY
 SOCIAL_AUTH_TWITTER_SECRET = "314TNcpJdXIJrxZcY9QbZoFlXSRasmTmATE6xqUYy2WnuXmi7O"  # api SECRET
 # BREARER TOKEN
 # AAAAAAAAAAAAAAAAAAAAAFCnjAEAAAAAj8txDcpXaEq8w1lDGNkgu % 2B9TT5M % 3DG0THo1UxArwbqE9avSH5j4rsqF9eT8uf1KdBu4eKcN6Wpl6b7Z
+
+ABSOLUTE_URL_OVERRIDES = {'auth.user': lambda u: reverse_lazy(
+    'user_detail', args=[u.username])}
