@@ -37,13 +37,14 @@ INSTALLED_APPS = [
     "account.apps.AccountConfig",  # use my authentication template before any others
     "django.contrib.admin",
     "django.contrib.auth",
-    "django.contrib.contenttypes",
+    "django.contrib.contenttypes", # record history
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django.contrib.admindocs",
     # local apps other than accounting
     "images",
+    "actions",
     # third party
     "crispy_forms",
     "social_django",
