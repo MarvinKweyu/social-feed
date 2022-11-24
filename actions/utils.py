@@ -24,7 +24,7 @@ def create_action(user, verb, target=None):
     last_minute = timezone.now() - datetime.timedelta(seconds=60)
     # get all actions swithin the last minute
     similar_actions = Action.objects.filter(
-        user_id=user.id, verb=verb, created_at__gte=last_minute)
+        user_id=user.id, verb=verb, created__gte=last_minute)
 
     if not similar_actions:
         # no similar actions recorded
