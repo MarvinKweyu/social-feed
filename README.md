@@ -2,7 +2,7 @@
 
 ![Python](https://img.shields.io/badge/Python-3.10-green?style=flat)
 
-> An image-bookmarking social application
+> An image-bookmarking and sharing social application
 
 
 ## Bare metal setup

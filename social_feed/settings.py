@@ -155,10 +155,8 @@ AUTHENTICATION_BACKENDS = [
     "social_core.backends.twitter.TwitterOAuth",
 ]
 
-SOCIAL_AUTH_TWITTER_KEY = "ffptrcZ9Lwu6vEKKRPWTF9DBz"  # api KEY
-SOCIAL_AUTH_TWITTER_SECRET = "314TNcpJdXIJrxZcY9QbZoFlXSRasmTmATE6xqUYy2WnuXmi7O"  # api SECRET
-# BREARER TOKEN
-# AAAAAAAAAAAAAAAAAAAAAFCnjAEAAAAAj8txDcpXaEq8w1lDGNkgu % 2B9TT5M % 3DG0THo1UxArwbqE9avSH5j4rsqF9eT8uf1KdBu4eKcN6Wpl6b7Z
+SOCIAL_AUTH_TWITTER_KEY = os.environ.get("TWITTER_KEY", "")  # api KEY
+SOCIAL_AUTH_TWITTER_SECRET = os.environ.get("TWITTER_SECRET", "")  # api SECRET
 
 # reverse url for specific app. alternate setup
 ABSOLUTE_URL_OVERRIDES = {'auth.user': lambda u: reverse_lazy(
