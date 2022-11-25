@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     "account.apps.AccountConfig",  # use my authentication template before any others
     "django.contrib.admin",
     "django.contrib.auth",
-    "django.contrib.contenttypes", # record history
+    "django.contrib.contenttypes",  # record history
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
@@ -160,5 +160,10 @@ SOCIAL_AUTH_TWITTER_SECRET = "314TNcpJdXIJrxZcY9QbZoFlXSRasmTmATE6xqUYy2WnuXmi7O
 # BREARER TOKEN
 # AAAAAAAAAAAAAAAAAAAAAFCnjAEAAAAAj8txDcpXaEq8w1lDGNkgu % 2B9TT5M % 3DG0THo1UxArwbqE9avSH5j4rsqF9eT8uf1KdBu4eKcN6Wpl6b7Z
 
+# reverse url for specific app. alternate setup
 ABSOLUTE_URL_OVERRIDES = {'auth.user': lambda u: reverse_lazy(
     'user_detail', args=[u.username])}
+
+REDIS_HOST = 'localhost'
+REDIS_PORT = 6379
+REDIS_DB = 0
