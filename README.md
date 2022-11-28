@@ -5,8 +5,11 @@
 > An image-bookmarking and sharing social application
 
 :heavy_check_mark: Registration and authentication
+
 :heavy_check_mark: Bookmarking images
+
 :heavy_check_mark: Like images other users have bookmarked
+
 :heavy_check_mark: Follow other users to see their liked images
 
 ## Bare metal setup
